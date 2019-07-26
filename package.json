@@ -1,0 +1,17 @@
+{
+  "name": "ext-3.4.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ext-all-debug-w-comments.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "cd ./nginx && ./nginx.exe"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

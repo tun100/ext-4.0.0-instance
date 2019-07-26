@@ -1,0 +1,38 @@
+var tp1 = Ext.create('Ext.Template', ['Hello {firstName} {lastName}', 'Nice to meet you!'])
+var formPanel = Ext.create('Ext.form.FormPanel', {
+  itemId: 'formPanel',
+  frame: true,
+  layout: 'anchor',
+  defaultType: 'textfield',
+  defaults: {
+    anchor: '-10',
+    labelWidth: 65
+  },
+  items: [
+    {
+      fieldLabel: 'First Name',
+      name: 'firstName'
+    },
+    {
+      fieldLabel: 'Last Name',
+      name: 'lastName'
+    }
+  ],
+  buttons: [
+    {
+      text: 'Sumbit',
+      handler: function () {
+        var formPanel = this.up('#formPanel')
+        var vals = formPanel.getValues()
+        var greeting = tp1.apply(this)
+        Ext.Msg.alert('Hello', greeting)
+      }
+    }
+  ]
+})
+Ext.onReady(function(){
+    Ext.create('Ext.window.Window',{
+        width: 200,
+        // height: 
+    })
+})
