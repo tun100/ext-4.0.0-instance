@@ -30,9 +30,14 @@ var formPanel = Ext.create('Ext.form.FormPanel', {
     }
   ]
 })
-Ext.onReady(function(){
-    Ext.create('Ext.window.Window',{
-        width: 200,
-        // height: 
-    })
+Ext.onReady(function () {
+  Ext.create('Ext.window.Window', {
+    width: 200,
+    height: 125,
+    closable: false,
+    title: 'Input needed',
+    border: false,
+    layout: 'fit',
+    items: formPanel
+  }).show()
 })
