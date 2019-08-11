@@ -1,43 +1,42 @@
-var tp1 = Ext.create('Ext.Template', ['Hello {firstName} {lastName}', 'Nice to meet you!'])
-var formPanel = Ext.create('Ext.form.FormPanel', {
-  itemId: 'formPanel',
-  frame: true,
-  layout: 'anchor',
-  defaultType: 'textfield',
-  defaults: {
-    anchor: '-10',
-    labelWidth: 65
-  },
-  items: [
-    {
-      fieldLabel: 'First Name',
-      name: 'firstName'
+Ext.onReady(() => {
+  Ext.define('MyApp.PressMeButton', {
+    extend: 'Ext.button.Button',
+    text: 'Press Me',
+    alias: 'widget.pressmebutton'
+  })
+  Ext.create('Ext.container.Viewport', {
+    layout: {
+      type: 'border',
+      padding: 5
     },
-    {
-      fieldLabel: 'Last Name',
-      name: 'lastName'
-    }
-  ],
-  buttons: [
-    {
-      text: 'Sumbit',
-      handler: function () {
-        var formPanel = this.up('#formPanel')
-        var vals = formPanel.getValues()
-        var greeting = tp1.apply(this)
-        Ext.Msg.alert('Hello', greeting)
+    defaults: {
+      split: true
+    },
+    items: [
+      {
+        height: 75,
+        region: 'north',
+        collapsible: true,
+        title: 'North here',
+        items: [
+          {
+            xtype: 'button',
+            text: '确定'
+          },
+          {
+            xtype: 'pressmebutton'
+          }
+        ]
+      },
+      {
+        width: 150,
+        region: 'west',
+        title: 'my test'
+      },
+      {
+        region: 'center',
+        title: 'here is center'
       }
-    }
-  ]
-})
-Ext.onReady(function () {
-  Ext.create('Ext.window.Window', {
-    width: 200,
-    height: 125,
-    closable: false,
-    title: 'Input needed',
-    border: false,
-    layout: 'fit',
-    items: formPanel
-  }).show()
+    ]
+  })
 })
